@@ -3,11 +3,15 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
+    # Store sort and direction in session if they are provided via params
+    session[:sort] = params[:sort] if params[:sort].present?
+    session[:direction] = params[:direction] if params[:direction].present?
 
-    sort_column = params[:sort] || "title"  # Default sort column
-    sort_direction = params[:direction] || "asc"  # Default sort direction
+    # Fallback to session values if params are not present, or default to "title" and "asc"
+    sort_column = session[:sort] || 'title'
+    sort_direction = session[:direction] || 'asc'
 
-    # Use ActiveRecord order method to sort the movies based on column and direction
+    # Order movies by the stored session values
     @movies = Movie.order("#{sort_column} #{sort_direction}")
   end
 
@@ -30,7 +34,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to movie_path(@movie, sort: params[:sort], direction: params[:direction]), notice: "Movie was successfully created." }
+        format.html { redirect_to movie_url(@movie), notice: "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +47,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to movie_path(@movie, sort: params[:sort], direction: params[:direction]), notice: "Movie was successfully updated." }
+        format.html { redirect_to movie_url(@movie), notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit, status: :unprocessable_entity }

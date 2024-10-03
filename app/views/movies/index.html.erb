@@ -9,13 +9,13 @@
     <thead>
       <tr>
         <th>
-          <%= link_to "Title", { sort: "title", direction: toggle_direction(params[:sort], params[:direction], "title") } %>
+        <%= link_to "Title", movies_path(sort: "title", direction: toggle_direction(session[:sort], session[:direction], "title")) %>
         </th>
         <th>
-          <%= link_to "Rating", { sort: "rating", direction: toggle_direction(params[:sort], params[:direction], "rating") } %>
+        <%= link_to "Rating", movies_path(sort: "rating", direction: toggle_direction(session[:sort], session[:direction], "rating")) %>
         </th>
         <th>
-          <%= link_to "Release Date", { sort: "release_date", direction: toggle_direction(params[:sort], params[:direction], "release_date") } %>
+        <%= link_to "Release Date", movies_path(sort: "release_date", direction: toggle_direction(session[:sort], session[:direction], "release_date")) %>
         </th>
         <th>Actions</th>
       </tr>
@@ -27,14 +27,13 @@
           <td><%= movie.rating %></td>
           <td><%= movie.release_date %></td>
           <td>
-            <%= link_to "Show", movie_path(movie, sort: params[:sort], direction: params[:direction])%>
-            <%= link_to "Edit", edit_movie_path(movie, sort: params[:sort], direction: params[:direction]) %>
-            <%= link_to "Delete", movie_path(movie, sort: params[:sort], direction: params[:direction]), 
-              method: :delete, 
-              data: { confirm: "Are you sure?" } %>          </td>
+            <%= link_to "Show", movie %>
+            <%= link_to "Edit", edit_movie_path(movie) %>
+            <%= link_to "Delete", movie, method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <td><%= link_to "New movie", new_movie_path(sort: params[:sort], direction: params[:direction]) %></td>
+  <td><%= link_to "New movie", new_movie_path(sort: session[:sort], direction: session[:direction]) %></td>
 </div>
