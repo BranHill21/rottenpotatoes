@@ -8,8 +8,8 @@ class MoviesController < ApplicationController
     session[:direction] = params[:direction] if params[:direction].present?
 
     # Fallback to session values if params are not present, or default to "title" and "asc"
-    sort_column = session[:sort] || 'title'
-    sort_direction = session[:direction] || 'asc'
+    sort_column = session[:sort] || "title"
+    sort_direction = session[:direction] || "asc"
 
     # Order movies by the stored session values
     @movies = Movie.order("LOWER(#{sort_column}) #{sort_direction}")

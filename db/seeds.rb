@@ -10,22 +10,22 @@
 
 # Seed the RottenPotatoes DB with some movies.
 more_movies = [
-  {:title => 'My Neighbor Totoro', :rating => 'G',
-    :release_date => '16-Apr-1988'},
-  {:title => 'Green Book', :rating => 'PG-13',
-    :release_date => '16-Nov-2018'},
-  {:title => 'Parasite', :rating => 'R',
-    :release_date => '30-May-2019'},
-  {:title => 'Nomadland', :rating => 'R',
-    :release_date => '19-Feb-2021'},
-  {:title => 'CODA', :rating => 'PG-13',
-    :release_date => '13-Aug-2021'},
-  {:title => 'Cars', :rating => 'G',
-    :release_date => '9-Jun-2006'},
-  {:title => 'Cars 2', :rating => 'G',
-    :release_date => '24-Jun-2011'},
-  {:title => 'Cars 3', :rating => 'G',
-    :release_date => '16-Jun-2017'}
+  { title: 'My Neighbor Totoro', rating: 'G',
+    release_date: '16-Apr-1988' },
+  { title: 'Green Book', rating: 'PG-13',
+    release_date: '16-Nov-2018' },
+  { title: 'Parasite', rating: 'R',
+    release_date: '30-May-2019' },
+  { title: 'Nomadland', rating: 'R',
+    release_date: '19-Feb-2021' },
+  { title: 'CODA', rating: 'PG-13',
+    release_date: '13-Aug-2021' },
+  { title: 'Cars', rating: 'G',
+    release_date: '9-Jun-2006' },
+  { title: 'Cars 2', rating: 'G',
+    release_date: '24-Jun-2011' },
+  { title: 'Cars 3', rating: 'G',
+    release_date: '16-Jun-2017' }
 ]
 
 more_movies.each do |movie|
