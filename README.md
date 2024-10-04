@@ -1,5 +1,7 @@
 # README
 
+Link to app deployed on heroku: https://secret-falls-39433-2e9437620ad6.herokuapp.com/movies
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
