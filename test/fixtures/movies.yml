@@ -1,9 +1,9 @@
 one:
-  title: "My First Movie"
+  title: "Sample movie one"
   description: "A sample description"
   release_date: "2023-01-01"
   
 two:
-  title: "My Second Movie"
+  title: "Sample move two"
   description: "Another description"
   release_date: "2024-01-01"
