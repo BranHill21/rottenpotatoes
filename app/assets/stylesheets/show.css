@@ -1,0 +1,28 @@
+#showMovie {
+    text-align: center;
+    background-color: lightgray;
+    color: black;
+
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        padding: 2px 6px 2px 6px;
+        display: inline-block;
+        background-color:rgb(241, 241, 241);
+        border-radius: 2px;
+        border-width: 10px;
+     }
+
+     #movieDetails{
+        font-size: larger;
+     }
+
+     div{
+        padding: 10px;
+     }
+
+     button{
+        margin: 10px;
+     }
+ }

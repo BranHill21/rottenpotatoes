@@ -1,20 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Movies" %>
-
-<h1>Movies</h1>
 
 <div id="movies">
+  <% content_for :title, "Movies" %>
+
+<h1>Movies</h1>
   <table id="moviesTable">
     <thead>
       <tr>
-        <th>
+        <th class="<%= 'active-sort' if params[:sort] == 'title' %> <%= params[:direction] %>">
         <%= link_to "Title", movies_path(sort: "title", direction: toggle_direction(session[:sort], session[:direction], "title")) %>
         </th>
-        <th>
+        <th class="<%= 'active-sort' if params[:sort] == 'rating' %> <%= params[:direction] %>">
         <%= link_to "Rating", movies_path(sort: "rating", direction: toggle_direction(session[:sort], session[:direction], "rating")) %>
         </th>
-        <th>
+        <th class="<%= 'active-sort' if params[:sort] == 'release_date' %> <%= params[:direction] %>">
         <%= link_to "Release Date", movies_path(sort: "release_date", direction: toggle_direction(session[:sort], session[:direction], "release_date")) %>
         </th>
         <th>Actions</th>
@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <% @movies.each do |movie| %>
-        <tr>
+        <tr id="movieRow">
           <td><%= movie.title %></td>
           <td><%= movie.rating %></td>
           <td><%= movie.release_date %></td>
@@ -34,6 +34,11 @@
         </tr>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4" id="newMovieButton"><%= link_to "New movie", new_movie_path(sort: session[:sort], direction: session[:direction]) %></th>
+        </tr>
+    </tfoot>
   </table>
-  <td><%= link_to "New movie", new_movie_path(sort: session[:sort], direction: session[:direction]) %></td>
+  
 </div>

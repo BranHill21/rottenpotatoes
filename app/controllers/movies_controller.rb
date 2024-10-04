@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
     sort_direction = session[:direction] || 'asc'
 
     # Order movies by the stored session values
-    @movies = Movie.order("#{sort_column} #{sort_direction}")
+    @movies = Movie.order("LOWER(#{sort_column}) #{sort_direction}")
   end
 
   # GET /movies/1 or /movies/1.json
